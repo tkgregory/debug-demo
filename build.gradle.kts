@@ -23,3 +23,9 @@ java {
         languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
+
+tasks.named<Jar>("jar") {
+    manifest {
+        attributes["Main-Class"] = "com.tomgregory.BattleshipGame"
+    }
+}
