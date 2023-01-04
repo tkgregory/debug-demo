@@ -1,11 +1,13 @@
 name: Update Gradle Wrapper
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches: [ master ]
 jobs:
   update-gradle-wrapper:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # to allow next step to push
       - name: Update Gradle Wrapper
         uses: gradle-update/update-gradle-wrapper-action@v1
